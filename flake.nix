@@ -33,8 +33,7 @@
             xorg.libXi
             libxkbcommon
             #emscripten
-          ]
-          ++ [ ./myemsc.nix ];
+          ] ++ [ (pkgs.callPackage ./myemsc.nix { }) ];
 
 
           shellHook = ''
