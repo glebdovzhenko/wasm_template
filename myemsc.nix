@@ -17,7 +17,7 @@
 
 stdenv.mkDerivation rec {
   pname = "emscripten";
-  version = "3.1.73";
+  version = "4.0.8";
 
   llvmEnv = symlinkJoin {
     name = "emscripten-llvm-${version}";
