@@ -11,3 +11,4 @@ emcc -o index.html \
     -s INITIAL_MEMORY=128MB \
     -s ASSERTIONS \
     -DPLATFORM_WEB 
+emrun index.html
