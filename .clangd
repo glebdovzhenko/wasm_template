@@ -1,0 +1,2 @@
+CompileFlags:
+  Add: ['-Wall', '-I/home/glebd/Dev/raylib_projects/wasm_template/external/raylib-5.5/src/', '-L/home/glebd/Dev/raylib_projects/wasm_template/external/raylib-5.5/src/']
