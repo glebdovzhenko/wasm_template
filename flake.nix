@@ -4,12 +4,14 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
+    glebpkgs.url = "github:glebdovzhenko/nixos-config";
   };
 
   outputs =
     { self
     , nixpkgs
     , flake-utils
+    , glebpkgs
     , ...
     }:
     let
@@ -32,9 +34,10 @@
             xorg.libXinerama
             xorg.libXi
             libxkbcommon
-            #emscripten
-            (callPackage ./myemsc.nix { })
-          ]; 
+            #(callPackage ~/nixos-config/pkgs/emscripten { })
+            (callPackage "${glebpkgs}/pkgs/emscripten" { })
+
+          ];
 
 
           shellHook = ''
