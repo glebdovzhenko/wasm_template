@@ -22,6 +22,7 @@
       system:
       let
         pkgs = import nixpkgs { inherit overlays system; };
+        emscripten = pkgs.callPackage "${glebpkgs}/pkgs/emscripten" { };
       in
       {
         devShells.default = pkgs.mkShell {
@@ -35,15 +36,15 @@
             xorg.libXi
             libxkbcommon
             #(callPackage ~/nixos-config/pkgs/emscripten { })
-            (callPackage "${glebpkgs}/pkgs/emscripten" { })
-
-          ];
+            #(callPackage "${glebpkgs}/pkgs/emscripten" { })
+          ] ++ [ emscripten ];
 
 
           shellHook = ''
             cp -r ${pkgs.emscripten}/share/emscripten/cache ~/.emscripten_cache
             chmod u+rwX -R ~/.emscripten_cache
             export EM_CACHE=~/.emscripten_cache
+            export EMSCRIPTEN_PATH="${emscripten}"
           '';
 
         };
